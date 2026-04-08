@@ -12,631 +12,346 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "source": [
+        "print(\"hello world\")"
+      ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
-        "id": "2l0m5AGCy0VH",
-        "outputId": "201ba034-2843-4d38-9773-e84c64645d59"
+        "id": "_M7cCY3oY0Dj",
+        "outputId": "3c4ec9cb-a440-45a1-a645-485757cf7dfd"
       },
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Collecting pybaseball\n",
-            "  Downloading pybaseball-2.2.7-py3-none-any.whl.metadata (11 kB)\n",
-            "Requirement already satisfied: pandas in /usr/local/lib/python3.12/dist-packages (2.2.2)\n",
-            "Requirement already satisfied: numpy>=1.13.0 in /usr/local/lib/python3.12/dist-packages (from pybaseball) (2.0.2)\n",
-            "Requirement already satisfied: beautifulsoup4>=4.4.0 in /usr/local/lib/python3.12/dist-packages (from pybaseball) (4.13.5)\n",
-            "Requirement already satisfied: requests>=2.18.1 in /usr/local/lib/python3.12/dist-packages (from pybaseball) (2.32.4)\n",
-            "Requirement already satisfied: lxml>=4.2.1 in /usr/local/lib/python3.12/dist-packages (from pybaseball) (6.0.2)\n",
-            "Requirement already satisfied: pyarrow>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from pybaseball) (18.1.0)\n",
-            "Collecting pygithub>=1.51 (from pybaseball)\n",
-            "  Downloading pygithub-2.9.0-py3-none-any.whl.metadata (3.9 kB)\n",
-            "Requirement already satisfied: scipy>=1.4.0 in /usr/local/lib/python3.12/dist-packages (from pybaseball) (1.16.3)\n",
-            "Requirement already satisfied: matplotlib>=2.0.0 in /usr/local/lib/python3.12/dist-packages (from pybaseball) (3.10.0)\n",
-            "Requirement already satisfied: tqdm>=4.50.0 in /usr/local/lib/python3.12/dist-packages (from pybaseball) (4.67.3)\n",
-            "Requirement already satisfied: attrs>=20.3.0 in /usr/local/lib/python3.12/dist-packages (from pybaseball) (26.1.0)\n",
-            "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas) (2.9.0.post0)\n",
-            "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas) (2025.2)\n",
-            "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas) (2025.3)\n",
-            "Requirement already satisfied: soupsieve>1.2 in /usr/local/lib/python3.12/dist-packages (from beautifulsoup4>=4.4.0->pybaseball) (2.8.3)\n",
-            "Requirement already satisfied: typing-extensions>=4.0.0 in /usr/local/lib/python3.12/dist-packages (from beautifulsoup4>=4.4.0->pybaseball) (4.15.0)\n",
-            "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=2.0.0->pybaseball) (1.3.3)\n",
-            "Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=2.0.0->pybaseball) (0.12.1)\n",
-            "Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=2.0.0->pybaseball) (4.62.1)\n",
-            "Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=2.0.0->pybaseball) (1.5.0)\n",
-            "Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=2.0.0->pybaseball) (26.0)\n",
-            "Requirement already satisfied: pillow>=8 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=2.0.0->pybaseball) (11.3.0)\n",
-            "Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=2.0.0->pybaseball) (3.3.2)\n",
-            "Collecting pynacl>=1.4.0 (from pygithub>=1.51->pybaseball)\n",
-            "  Downloading pynacl-1.6.2-cp38-abi3-manylinux_2_34_x86_64.whl.metadata (10.0 kB)\n",
-            "Requirement already satisfied: pyjwt>=2.4.0 in /usr/local/lib/python3.12/dist-packages (from pyjwt[crypto]>=2.4.0->pygithub>=1.51->pybaseball) (2.12.1)\n",
-            "Requirement already satisfied: urllib3>=1.26.0 in /usr/local/lib/python3.12/dist-packages (from pygithub>=1.51->pybaseball) (2.5.0)\n",
-            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)\n",
-            "Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.18.1->pybaseball) (3.4.6)\n",
-            "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests>=2.18.1->pybaseball) (3.11)\n",
-            "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.12/dist-packages (from requests>=2.18.1->pybaseball) (2026.2.25)\n",
-            "Requirement already satisfied: cryptography>=3.4.0 in /usr/local/lib/python3.12/dist-packages (from pyjwt[crypto]>=2.4.0->pygithub>=1.51->pybaseball) (43.0.3)\n",
-            "Requirement already satisfied: cffi>=2.0.0 in /usr/local/lib/python3.12/dist-packages (from pynacl>=1.4.0->pygithub>=1.51->pybaseball) (2.0.0)\n",
-            "Requirement already satisfied: pycparser in /usr/local/lib/python3.12/dist-packages (from cffi>=2.0.0->pynacl>=1.4.0->pygithub>=1.51->pybaseball) (3.0)\n",
-            "Downloading pybaseball-2.2.7-py3-none-any.whl (426 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m426.1/426.1 kB\u001b[0m \u001b[31m13.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading pygithub-2.9.0-py3-none-any.whl (449 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m449.7/449.7 kB\u001b[0m \u001b[31m30.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading pynacl-1.6.2-cp38-abi3-manylinux_2_34_x86_64.whl (1.4 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.4/1.4 MB\u001b[0m \u001b[31m55.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hInstalling collected packages: pynacl, pygithub, pybaseball\n",
-            "Successfully installed pybaseball-2.2.7 pygithub-2.9.0 pynacl-1.6.2\n"
+            "hello world\n"
           ]
         }
-      ],
-      "source": [
-        "!pip install pybaseball pandas\n"
       ]
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "source": [
+        "print(3+2)"
+      ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
-        "id": "ANvRhfGFUQRd",
-        "outputId": "fe6c974e-0fc0-4f5a-cabc-e154c6fbeb15"
+        "id": "fnnOkTa6ZOGS",
+        "outputId": "d559e849-bea7-429e-abd1-e149aab9e1fd"
       },
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "데이터 수집 시작... 시간 좀 걸려요\n",
-            "This is a large query, it may take a moment to complete\n"
-          ]
-        },
-        {
-          "output_type": "stream",
-          "name": "stderr",
-          "text": [
-            "\r  0%|          | 0/8 [00:00<?, ?it/s]/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            " 12%|█▎        | 1/8 [00:00<00:05,  1.23it/s]/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            " 25%|██▌       | 2/8 [00:04<00:15,  2.53s/it]/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "/usr/local/lib/python3.12/dist-packages/pybaseball/datahelpers/postprocessing.py:59: FutureWarning: errors='ignore' is deprecated and will raise in a future version. Use to_datetime without passing `errors` and catch exceptions explicitly instead\n",
-            "  data_copy[column] = data_copy[column].apply(pd.to_datetime, errors='ignore', format=date_format)\n",
-            "100%|██████████| 8/8 [00:08<00:00,  1.09s/it]\n"
-          ]
-        },
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "완료! 총 27043행\n",
-            "['pitch_type', 'game_date', 'release_speed', 'release_pos_x', 'release_pos_z', 'player_name', 'batter', 'pitcher', 'events', 'description', 'spin_dir', 'spin_rate_deprecated', 'break_angle_deprecated', 'break_length_deprecated', 'zone', 'des', 'game_type', 'stand', 'p_throws', 'home_team', 'away_team', 'type', 'hit_location', 'bb_type', 'balls', 'strikes', 'game_year', 'pfx_x', 'pfx_z', 'plate_x', 'plate_z', 'on_3b', 'on_2b', 'on_1b', 'outs_when_up', 'inning', 'inning_topbot', 'hc_x', 'hc_y', 'tfs_deprecated', 'tfs_zulu_deprecated', 'umpire', 'sv_id', 'vx0', 'vy0', 'vz0', 'ax', 'ay', 'az', 'sz_top', 'sz_bot', 'hit_distance_sc', 'launch_speed', 'launch_angle', 'effective_speed', 'release_spin_rate', 'release_extension', 'game_pk', 'fielder_2', 'fielder_3', 'fielder_4', 'fielder_5', 'fielder_6', 'fielder_7', 'fielder_8', 'fielder_9', 'release_pos_y', 'estimated_ba_using_speedangle', 'estimated_woba_using_speedangle', 'woba_value', 'woba_denom', 'babip_value', 'iso_value', 'launch_speed_angle', 'at_bat_number', 'pitch_number', 'pitch_name', 'home_score', 'away_score', 'bat_score', 'fld_score', 'post_away_score', 'post_home_score', 'post_bat_score', 'post_fld_score', 'if_fielding_alignment', 'of_fielding_alignment', 'spin_axis', 'delta_home_win_exp', 'delta_run_exp', 'bat_speed', 'swing_length', 'estimated_slg_using_speedangle', 'delta_pitcher_run_exp', 'hyper_speed', 'home_score_diff', 'bat_score_diff', 'home_win_exp', 'bat_win_exp', 'age_pit_legacy', 'age_bat_legacy', 'age_pit', 'age_bat', 'n_thruorder_pitcher', 'n_priorpa_thisgame_player_at_bat', 'pitcher_days_since_prev_game', 'batter_days_since_prev_game', 'pitcher_days_until_next_game', 'batter_days_until_next_game', 'api_break_z_with_gravity', 'api_break_x_arm', 'api_break_x_batter_in', 'arm_angle', 'attack_angle', 'attack_direction', 'swing_path_tilt', 'intercept_ball_minus_batter_pos_x_inches', 'intercept_ball_minus_batter_pos_y_inches']\n"
-          ]
-        }
-      ],
-      "source": [
-        "from pybaseball import statcast\n",
-        "import pandas as pd\n",
-        "\n",
-        "print(\"데이터 수집 시작... 시간 좀 걸려요\")\n",
-        "df = statcast(start_dt=\"2026-03-25\", end_dt=\"2026-4-01\")\n",
-        "\n",
-        "print(f\"완료! 총 {len(df)}행\")\n",
-        "print(df.columns.tolist())"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 342
-        },
-        "id": "b635bb5c",
-        "outputId": "6849c640-dfed-4043-b634-841f2ca738da"
-      },
-      "source": [
-        "display(df.head())"
-      ],
       "execution_count": null,
       "outputs": [
         {
-          "output_type": "display_data",
-          "data": {
-            "text/plain": [
-              "     pitch_type  game_date  release_speed  release_pos_x  release_pos_z  \\\n",
-              "2604         CU 2026-04-01           87.9           -2.4            5.3   \n",
-              "2680         SI 2026-04-01           98.0           -2.5           5.27   \n",
-              "2772         CU 2026-04-01           88.3          -2.58           5.32   \n",
-              "2869         CU 2026-04-01           89.7          -2.45           5.29   \n",
-              "3001         SI 2026-04-01           97.6           -2.5           5.25   \n",
-              "\n",
-              "             player_name  batter  pitcher     events    description  ...  \\\n",
-              "2604  Loáisiga, Jonathan  693307   642528  field_out  hit_into_play  ...   \n",
-              "2680  Loáisiga, Jonathan  693307   642528        NaN           ball  ...   \n",
-              "2772  Loáisiga, Jonathan  693307   642528        NaN           foul  ...   \n",
-              "2869  Loáisiga, Jonathan  693307   642528        NaN           ball  ...   \n",
-              "3001  Loáisiga, Jonathan  682985   642528     double  hit_into_play  ...   \n",
-              "\n",
-              "      batter_days_until_next_game  api_break_z_with_gravity  api_break_x_arm  \\\n",
-              "2604                            2                      2.77            -0.45   \n",
-              "2680                            2                      1.81             1.35   \n",
-              "2772                            2                      2.78            -0.31   \n",
-              "2869                            2                      2.57            -0.25   \n",
-              "3001                            2                      1.88             1.39   \n",
-              "\n",
-              "      api_break_x_batter_in  arm_angle attack_angle attack_direction  \\\n",
-              "2604                  -0.45       44.7     7.939833         7.403371   \n",
-              "2680                   1.35       43.2         <NA>             <NA>   \n",
-              "2772                  -0.31       40.8     27.04502       -20.923842   \n",
-              "2869                  -0.25       40.3         <NA>             <NA>   \n",
-              "3001                  -1.39       42.6    14.712189        -2.666409   \n",
-              "\n",
-              "     swing_path_tilt intercept_ball_minus_batter_pos_x_inches  \\\n",
-              "2604       41.114852                                50.448451   \n",
-              "2680            <NA>                                     <NA>   \n",
-              "2772       42.684616                                39.278578   \n",
-              "2869            <NA>                                     <NA>   \n",
-              "3001       48.093757                                34.802201   \n",
-              "\n",
-              "     intercept_ball_minus_batter_pos_y_inches  \n",
-              "2604                                25.930719  \n",
-              "2680                                     <NA>  \n",
-              "2772                                40.819246  \n",
-              "2869                                     <NA>  \n",
-              "3001                                32.996941  \n",
-              "\n",
-              "[5 rows x 118 columns]"
-            ],
-            "text/html": [
-              "\n",
-              "  <div id=\"df-6101ead2-6784-4257-8afe-e747375bf4c2\" class=\"colab-df-container\">\n",
-              "    <div>\n",
-              "<style scoped>\n",
-              "    .dataframe tbody tr th:only-of-type {\n",
-              "        vertical-align: middle;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe tbody tr th {\n",
-              "        vertical-align: top;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe thead th {\n",
-              "        text-align: right;\n",
-              "    }\n",
-              "</style>\n",
-              "<table border=\"1\" class=\"dataframe\">\n",
-              "  <thead>\n",
-              "    <tr style=\"text-align: right;\">\n",
-              "      <th></th>\n",
-              "      <th>pitch_type</th>\n",
-              "      <th>game_date</th>\n",
-              "      <th>release_speed</th>\n",
-              "      <th>release_pos_x</th>\n",
-              "      <th>release_pos_z</th>\n",
-              "      <th>player_name</th>\n",
-              "      <th>batter</th>\n",
-              "      <th>pitcher</th>\n",
-              "      <th>events</th>\n",
-              "      <th>description</th>\n",
-              "      <th>...</th>\n",
-              "      <th>batter_days_until_next_game</th>\n",
-              "      <th>api_break_z_with_gravity</th>\n",
-              "      <th>api_break_x_arm</th>\n",
-              "      <th>api_break_x_batter_in</th>\n",
-              "      <th>arm_angle</th>\n",
-              "      <th>attack_angle</th>\n",
-              "      <th>attack_direction</th>\n",
-              "      <th>swing_path_tilt</th>\n",
-              "      <th>intercept_ball_minus_batter_pos_x_inches</th>\n",
-              "      <th>intercept_ball_minus_batter_pos_y_inches</th>\n",
-              "    </tr>\n",
-              "  </thead>\n",
-              "  <tbody>\n",
-              "    <tr>\n",
-              "      <th>2604</th>\n",
-              "      <td>CU</td>\n",
-              "      <td>2026-04-01</td>\n",
-              "      <td>87.9</td>\n",
-              "      <td>-2.4</td>\n",
-              "      <td>5.3</td>\n",
-              "      <td>Loáisiga, Jonathan</td>\n",
-              "      <td>693307</td>\n",
-              "      <td>642528</td>\n",
-              "      <td>field_out</td>\n",
-              "      <td>hit_into_play</td>\n",
-              "      <td>...</td>\n",
-              "      <td>2</td>\n",
-              "      <td>2.77</td>\n",
-              "      <td>-0.45</td>\n",
-              "      <td>-0.45</td>\n",
-              "      <td>44.7</td>\n",
-              "      <td>7.939833</td>\n",
-              "      <td>7.403371</td>\n",
-              "      <td>41.114852</td>\n",
-              "      <td>50.448451</td>\n",
-              "      <td>25.930719</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>2680</th>\n",
-              "      <td>SI</td>\n",
-              "      <td>2026-04-01</td>\n",
-              "      <td>98.0</td>\n",
-              "      <td>-2.5</td>\n",
-              "      <td>5.27</td>\n",
-              "      <td>Loáisiga, Jonathan</td>\n",
-              "      <td>693307</td>\n",
-              "      <td>642528</td>\n",
-              "      <td>NaN</td>\n",
-              "      <td>ball</td>\n",
-              "      <td>...</td>\n",
-              "      <td>2</td>\n",
-              "      <td>1.81</td>\n",
-              "      <td>1.35</td>\n",
-              "      <td>1.35</td>\n",
-              "      <td>43.2</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>2772</th>\n",
-              "      <td>CU</td>\n",
-              "      <td>2026-04-01</td>\n",
-              "      <td>88.3</td>\n",
-              "      <td>-2.58</td>\n",
-              "      <td>5.32</td>\n",
-              "      <td>Loáisiga, Jonathan</td>\n",
-              "      <td>693307</td>\n",
-              "      <td>642528</td>\n",
-              "      <td>NaN</td>\n",
-              "      <td>foul</td>\n",
-              "      <td>...</td>\n",
-              "      <td>2</td>\n",
-              "      <td>2.78</td>\n",
-              "      <td>-0.31</td>\n",
-              "      <td>-0.31</td>\n",
-              "      <td>40.8</td>\n",
-              "      <td>27.04502</td>\n",
-              "      <td>-20.923842</td>\n",
-              "      <td>42.684616</td>\n",
-              "      <td>39.278578</td>\n",
-              "      <td>40.819246</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>2869</th>\n",
-              "      <td>CU</td>\n",
-              "      <td>2026-04-01</td>\n",
-              "      <td>89.7</td>\n",
-              "      <td>-2.45</td>\n",
-              "      <td>5.29</td>\n",
-              "      <td>Loáisiga, Jonathan</td>\n",
-              "      <td>693307</td>\n",
-              "      <td>642528</td>\n",
-              "      <td>NaN</td>\n",
-              "      <td>ball</td>\n",
-              "      <td>...</td>\n",
-              "      <td>2</td>\n",
-              "      <td>2.57</td>\n",
-              "      <td>-0.25</td>\n",
-              "      <td>-0.25</td>\n",
-              "      <td>40.3</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "      <td>&lt;NA&gt;</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>3001</th>\n",
-              "      <td>SI</td>\n",
-              "      <td>2026-04-01</td>\n",
-              "      <td>97.6</td>\n",
-              "      <td>-2.5</td>\n",
-              "      <td>5.25</td>\n",
-              "      <td>Loáisiga, Jonathan</td>\n",
-              "      <td>682985</td>\n",
-              "      <td>642528</td>\n",
-              "      <td>double</td>\n",
-              "      <td>hit_into_play</td>\n",
-              "      <td>...</td>\n",
-              "      <td>2</td>\n",
-              "      <td>1.88</td>\n",
-              "      <td>1.39</td>\n",
-              "      <td>-1.39</td>\n",
-              "      <td>42.6</td>\n",
-              "      <td>14.712189</td>\n",
-              "      <td>-2.666409</td>\n",
-              "      <td>48.093757</td>\n",
-              "      <td>34.802201</td>\n",
-              "      <td>32.996941</td>\n",
-              "    </tr>\n",
-              "  </tbody>\n",
-              "</table>\n",
-              "<p>5 rows × 118 columns</p>\n",
-              "</div>\n",
-              "    <div class=\"colab-df-buttons\">\n",
-              "\n",
-              "  <div class=\"colab-df-container\">\n",
-              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-6101ead2-6784-4257-8afe-e747375bf4c2')\"\n",
-              "            title=\"Convert this dataframe to an interactive table.\"\n",
-              "            style=\"display:none;\">\n",
-              "\n",
-              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
-              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
-              "  </svg>\n",
-              "    </button>\n",
-              "\n",
-              "  <style>\n",
-              "    .colab-df-container {\n",
-              "      display:flex;\n",
-              "      gap: 12px;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-convert {\n",
-              "      background-color: #E8F0FE;\n",
-              "      border: none;\n",
-              "      border-radius: 50%;\n",
-              "      cursor: pointer;\n",
-              "      display: none;\n",
-              "      fill: #1967D2;\n",
-              "      height: 32px;\n",
-              "      padding: 0 0 0 0;\n",
-              "      width: 32px;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-convert:hover {\n",
-              "      background-color: #E2EBFA;\n",
-              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
-              "      fill: #174EA6;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-buttons div {\n",
-              "      margin-bottom: 4px;\n",
-              "    }\n",
-              "\n",
-              "    [theme=dark] .colab-df-convert {\n",
-              "      background-color: #3B4455;\n",
-              "      fill: #D2E3FC;\n",
-              "    }\n",
-              "\n",
-              "    [theme=dark] .colab-df-convert:hover {\n",
-              "      background-color: #434B5C;\n",
-              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
-              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
-              "      fill: #FFFFFF;\n",
-              "    }\n",
-              "  </style>\n",
-              "\n",
-              "    <script>\n",
-              "      const buttonEl =\n",
-              "        document.querySelector('#df-6101ead2-6784-4257-8afe-e747375bf4c2 button.colab-df-convert');\n",
-              "      buttonEl.style.display =\n",
-              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
-              "\n",
-              "      async function convertToInteractive(key) {\n",
-              "        const element = document.querySelector('#df-6101ead2-6784-4257-8afe-e747375bf4c2');\n",
-              "        const dataTable =\n",
-              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
-              "                                                    [key], {});\n",
-              "        if (!dataTable) return;\n",
-              "\n",
-              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
-              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
-              "          + ' to learn more about interactive tables.';\n",
-              "        element.innerHTML = '';\n",
-              "        dataTable['output_type'] = 'display_data';\n",
-              "        await google.colab.output.renderOutput(dataTable, element);\n",
-              "        const docLink = document.createElement('div');\n",
-              "        docLink.innerHTML = docLinkHtml;\n",
-              "        element.appendChild(docLink);\n",
-              "      }\n",
-              "    </script>\n",
-              "  </div>\n",
-              "\n",
-              "\n",
-              "    </div>\n",
-              "  </div>\n"
-            ],
-            "application/vnd.google.colaboratory.intrinsic+json": {
-              "type": "dataframe"
-            }
-          },
-          "metadata": {}
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "5\n"
+          ]
         }
       ]
     },
     {
       "cell_type": "code",
       "source": [
-        "df[df[\"player_name\"] == \"skubal,tarik\"]"
+        "print(3-1)"
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 99
+          "base_uri": "https://localhost:8080/"
         },
-        "id": "CAWoB_T6Y7UA",
-        "outputId": "f8b35b7a-4a40-48ac-b086-725989153361"
+        "id": "THWR1zwjZVuq",
+        "outputId": "634c18a1-537e-4e4d-a35c-c5afdb12eaad"
       },
       "execution_count": null,
       "outputs": [
         {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "Empty DataFrame\n",
-              "Columns: [pitch_type, game_date, release_speed, release_pos_x, release_pos_z, player_name, batter, pitcher, events, description, spin_dir, spin_rate_deprecated, break_angle_deprecated, break_length_deprecated, zone, des, game_type, stand, p_throws, home_team, away_team, type, hit_location, bb_type, balls, strikes, game_year, pfx_x, pfx_z, plate_x, plate_z, on_3b, on_2b, on_1b, outs_when_up, inning, inning_topbot, hc_x, hc_y, tfs_deprecated, tfs_zulu_deprecated, umpire, sv_id, vx0, vy0, vz0, ax, ay, az, sz_top, sz_bot, hit_distance_sc, launch_speed, launch_angle, effective_speed, release_spin_rate, release_extension, game_pk, fielder_2, fielder_3, fielder_4, fielder_5, fielder_6, fielder_7, fielder_8, fielder_9, release_pos_y, estimated_ba_using_speedangle, estimated_woba_using_speedangle, woba_value, woba_denom, babip_value, iso_value, launch_speed_angle, at_bat_number, pitch_number, pitch_name, home_score, away_score, bat_score, fld_score, post_away_score, post_home_score, post_bat_score, post_fld_score, if_fielding_alignment, of_fielding_alignment, spin_axis, delta_home_win_exp, delta_run_exp, bat_speed, swing_length, estimated_slg_using_speedangle, delta_pitcher_run_exp, hyper_speed, home_score_diff, bat_score_diff, home_win_exp, bat_win_exp, age_pit_legacy, ...]\n",
-              "Index: []\n",
-              "\n",
-              "[0 rows x 118 columns]"
-            ],
-            "text/html": [
-              "\n",
-              "  <div id=\"df-1817db4e-d8ed-4fb7-8b9c-74f68d57775e\" class=\"colab-df-container\">\n",
-              "    <div>\n",
-              "<style scoped>\n",
-              "    .dataframe tbody tr th:only-of-type {\n",
-              "        vertical-align: middle;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe tbody tr th {\n",
-              "        vertical-align: top;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe thead th {\n",
-              "        text-align: right;\n",
-              "    }\n",
-              "</style>\n",
-              "<table border=\"1\" class=\"dataframe\">\n",
-              "  <thead>\n",
-              "    <tr style=\"text-align: right;\">\n",
-              "      <th></th>\n",
-              "      <th>pitch_type</th>\n",
-              "      <th>game_date</th>\n",
-              "      <th>release_speed</th>\n",
-              "      <th>release_pos_x</th>\n",
-              "      <th>release_pos_z</th>\n",
-              "      <th>player_name</th>\n",
-              "      <th>batter</th>\n",
-              "      <th>pitcher</th>\n",
-              "      <th>events</th>\n",
-              "      <th>description</th>\n",
-              "      <th>...</th>\n",
-              "      <th>batter_days_until_next_game</th>\n",
-              "      <th>api_break_z_with_gravity</th>\n",
-              "      <th>api_break_x_arm</th>\n",
-              "      <th>api_break_x_batter_in</th>\n",
-              "      <th>arm_angle</th>\n",
-              "      <th>attack_angle</th>\n",
-              "      <th>attack_direction</th>\n",
-              "      <th>swing_path_tilt</th>\n",
-              "      <th>intercept_ball_minus_batter_pos_x_inches</th>\n",
-              "      <th>intercept_ball_minus_batter_pos_y_inches</th>\n",
-              "    </tr>\n",
-              "  </thead>\n",
-              "  <tbody>\n",
-              "  </tbody>\n",
-              "</table>\n",
-              "<p>0 rows × 118 columns</p>\n",
-              "</div>\n",
-              "    <div class=\"colab-df-buttons\">\n",
-              "\n",
-              "  <div class=\"colab-df-container\">\n",
-              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-1817db4e-d8ed-4fb7-8b9c-74f68d57775e')\"\n",
-              "            title=\"Convert this dataframe to an interactive table.\"\n",
-              "            style=\"display:none;\">\n",
-              "\n",
-              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
-              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
-              "  </svg>\n",
-              "    </button>\n",
-              "\n",
-              "  <style>\n",
-              "    .colab-df-container {\n",
-              "      display:flex;\n",
-              "      gap: 12px;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-convert {\n",
-              "      background-color: #E8F0FE;\n",
-              "      border: none;\n",
-              "      border-radius: 50%;\n",
-              "      cursor: pointer;\n",
-              "      display: none;\n",
-              "      fill: #1967D2;\n",
-              "      height: 32px;\n",
-              "      padding: 0 0 0 0;\n",
-              "      width: 32px;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-convert:hover {\n",
-              "      background-color: #E2EBFA;\n",
-              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
-              "      fill: #174EA6;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-buttons div {\n",
-              "      margin-bottom: 4px;\n",
-              "    }\n",
-              "\n",
-              "    [theme=dark] .colab-df-convert {\n",
-              "      background-color: #3B4455;\n",
-              "      fill: #D2E3FC;\n",
-              "    }\n",
-              "\n",
-              "    [theme=dark] .colab-df-convert:hover {\n",
-              "      background-color: #434B5C;\n",
-              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
-              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
-              "      fill: #FFFFFF;\n",
-              "    }\n",
-              "  </style>\n",
-              "\n",
-              "    <script>\n",
-              "      const buttonEl =\n",
-              "        document.querySelector('#df-1817db4e-d8ed-4fb7-8b9c-74f68d57775e button.colab-df-convert');\n",
-              "      buttonEl.style.display =\n",
-              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
-              "\n",
-              "      async function convertToInteractive(key) {\n",
-              "        const element = document.querySelector('#df-1817db4e-d8ed-4fb7-8b9c-74f68d57775e');\n",
-              "        const dataTable =\n",
-              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
-              "                                                    [key], {});\n",
-              "        if (!dataTable) return;\n",
-              "\n",
-              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
-              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
-              "          + ' to learn more about interactive tables.';\n",
-              "        element.innerHTML = '';\n",
-              "        dataTable['output_type'] = 'display_data';\n",
-              "        await google.colab.output.renderOutput(dataTable, element);\n",
-              "        const docLink = document.createElement('div');\n",
-              "        docLink.innerHTML = docLinkHtml;\n",
-              "        element.appendChild(docLink);\n",
-              "      }\n",
-              "    </script>\n",
-              "  </div>\n",
-              "\n",
-              "\n",
-              "    </div>\n",
-              "  </div>\n"
-            ],
-            "application/vnd.google.colaboratory.intrinsic+json": {
-              "type": "dataframe"
-            }
-          },
-          "metadata": {},
-          "execution_count": 13
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(3*11)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2gTJVJc2ZZjB",
+        "outputId": "0d16763a-c29c-484f-d7b8-f683d1d8a702"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "33\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(6//2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "w3Ehd4EiZdUV",
+        "outputId": "d8afc53e-e043-46d3-9fdb-67c9c04c5310"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(3/2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "L2Httef2ZmWI",
+        "outputId": "dd8c1956-2283-46b5-8f78-dcc5c69e1285"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1.5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(4%2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oTzNCDzrZqFV",
+        "outputId": "c1bf1981-0d58-4d42-cb5d-2b0a6db72960"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(type(10))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qem6hAdWaH7c",
+        "outputId": "2ab8ada0-9dc2-450f-c002-b9930533f0d5"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'int'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(type(3.5))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QSTokR59aUIx",
+        "outputId": "016bd340-700d-4c7a-82a2-181c16892bee"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'float'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(type(1-4j))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8r3C6NWgaYtk",
+        "outputId": "ef03949b-d16e-469b-b314-c1b54c4d3e82"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'complex'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(type('leekwanho'))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wCzZZOtda9Cy",
+        "outputId": "6ee8b72d-d646-4f5a-d2d1-35b6b5124627"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'str'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(type([1,2,3]))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xRQ-UuJjbQI8",
+        "outputId": "a21e5ad0-e062-4b12-de1e-507203f9fafa"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'list'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(2**2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-gmxSCfEbU4t",
+        "outputId": "4d375f8d-542a-4017-c60b-35f6d40a036b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(type({'age':'lee'}))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xcc6nDCDb86u",
+        "outputId": "bb356330-ebcf-4d6e-eda0-08d6d04b799c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'dict'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(type((2.8,3.5,4.5)))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zxh8WJxudoRa",
+        "outputId": "9a49febb-b7a2-49e1-d7f5-0354807b7f73"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'tuple'>\n"
+          ]
         }
       ]
     }
@@ -644,7 +359,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyMdLCd6vfUkTQLZma0Reobr",
+      "authorship_tag": "ABX9TyOnGitaip5woMscUdXhmnlf",
       "include_colab_link": true
     },
     "kernelspec": {
